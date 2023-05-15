@@ -94,7 +94,7 @@ Perk HELM_BREAKER
     
     Action
     {
-      ModFlag ( Name="Double", Frames=startBoostFrames)
+      ModIcon ( Name="Double", Frames=startBoostFrames, Player="Enemy" )
     }
   }
   
@@ -126,7 +126,7 @@ Perk HELM_BREAKER
     
     Condition
     {
-      return AND ( event.Player="Enemy", event.Defense=defense, not event.Block, ModExists ( Name = "Start" ) )
+      return AND ( event.Player="Enemy", event.Defense=defense, not event.Block, ModExists ( Name = "Double" ) )
     }
     
     Action
@@ -284,7 +284,7 @@ Perk RAGE
     
     Action
     {
-      CreateEvent ( "Fail" )
+      CreateEvent ( Name = "Fail" )
     }
   }
   Trigger RAGE_SUCCESS_ICON
@@ -318,7 +318,7 @@ Perk RAGE
     
     Action
     {
-      ModAttributes ( Name="StackedBonus", DamageFactor=defenseDamageFactor, Player="Me" )
+      ModAttributes ( Name="StackedBonus", DamageFactor=attackDamageFactor, Player="Me" )
     }
   }
   Trigger RAGE_FAIL
